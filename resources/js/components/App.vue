@@ -23,7 +23,7 @@
               <router-link class="text-black" to="/animation">Animation</router-link>
             </li>
             <li class="text-sm leading-loose">
-              <router-link class="text-black" to="/">Home</router-link>
+              <router-link class="text-black" to="/sitestats">Global stats</router-link>
             </li>
             <li class="text-sm leading-loose">
               <router-link class="text-black" to="/">Home</router-link>
