@@ -4,12 +4,15 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from './components/Home.vue';
 import App from './components/App.vue'
 import About from './components/About.vue';
+import Animation from './components/Animation.vue'
 import { isObject } from 'lodash';
 // import App from './App.vue';
 
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
+  { path: '/animation', component: Animation },
+  
 ]
 
 // 3. Create the router instance and pass the `routes` option
