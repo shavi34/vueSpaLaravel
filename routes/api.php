@@ -24,3 +24,7 @@ Route::get('/stats', function() {
     'lessons' => 1200  
   ];
 });
+
+route::get('/tokentest', function() {
+  return 'token is working fine';
+})->middleware('auth:api');
