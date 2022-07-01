@@ -28,3 +28,9 @@ Route::get('/stats', function() {
 route::get('/tokentest', function() {
   return 'token is working fine';
 })->middleware('auth:api');
+
+// Route::get('/createtoken', function() {
+// request () -›user () ->forceFilL([
+// "api_token' => $token = str_random (60)->
+
+// ])->save();
