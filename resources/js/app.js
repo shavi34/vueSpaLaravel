@@ -4,9 +4,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from './components/Home.vue';
 import App from './components/App.vue'
 import About from './components/About.vue';
-import Animation from './components/Animation.vue'
-import { isObject } from 'lodash';
-// import App from './App.vue';
+// import Animation from './components/animation.vue'
+let Animation = () =>  import('./components/Animation.vue');
 
 const routes = [
   { path: '/', component: Home },
