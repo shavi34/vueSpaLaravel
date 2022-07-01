@@ -2,24 +2,27 @@
   <div>
     <h1>Site stats</h1>
     <ul>
-      <li>Total Serios: 0</li>
-      <li>Total Lessons: 0</li>
-      
+      <li>Total Series: {{ series }}</li>
+      <li>Total Lessons: {{ lessons }}</li>
     </ul>
   </div>
 </template>
 <script>
 import axios from 'axios';
-import Axios from 'axios'
 export default {
-
-created(){
-
-  const data = axios.get('/api/stats').then(function (response) {
-    console.log(response.data);
-  });
-} 
-
+  data() {
+    return {
+      series: 0,
+      lessons: 0,
+    };
+  },
+  created() {
+    let self = this;
+    const data = axios.get('/api/stats').then(response => {
+      self.series = response.data.series;
+      self.lessons = response.data.lessons;
+    });
+  },
 };
 </script>
 <style lang=""></style>
