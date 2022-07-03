@@ -34,11 +34,15 @@ Inertia.on('finish', (event) => {
 })
 
 createInertiaApp({
-  resolve: name => require(`./Pages/${name}`),
-  title: title => title ? `${title} - Ping CRM` : 'Ping CRM',
+  resolve: name => {
+  let page = require(`./Pages/${name}`).default;
+    page.layout ??= Layout;
+    return page;
+  },  
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
+      .component("Link", Link)
       .mount(el)
   },
 })
