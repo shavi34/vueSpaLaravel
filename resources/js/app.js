@@ -1,8 +1,10 @@
 
 import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/inertia-vue3'
+import { createInertiaApp, Link } from '@inertiajs/inertia-vue3'
 import NProgress from 'nprogress'
 import { Inertia } from '@inertiajs/inertia'
+import Layout from './Shared/Layout.vue'
+
 NProgress.start();
 NProgress.done();
 let timeout = null
