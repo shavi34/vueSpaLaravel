@@ -1,7 +1,7 @@
 <template lang="">
-  <div class="mt-5">
+  <div class="">
     <nav>
-      <ul class="list-disc">
+      <ul class="list-disc flex space-x-5">
         <li><NavLink href="/" :active="$page.component==='Home'">Home</NavLink></li>
         <li><NavLink  href="/users" :active="$page.component==='Users'">Users</NavLink></li>
         <li><NavLink  href="/settings" :active="$page.component==='Settings'">Settings</NavLink></li>
