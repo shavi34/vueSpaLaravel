@@ -4,6 +4,7 @@ import { createInertiaApp, Link } from '@inertiajs/inertia-vue3'
 import NProgress from 'nprogress'
 import { Inertia } from '@inertiajs/inertia'
 import Layout from './Shared/Layout.vue'
+import { async } from 'rxjs'
 
 NProgress.start();
 NProgress.done();
@@ -34,8 +35,8 @@ Inertia.on('finish', (event) => {
 })
 
 createInertiaApp({
-  resolve: name => {
-  let page = require(`./Pages/${name}`).default;
+  resolve: async name => {
+  let page = (await import(`./Pages/${name}`)).default;
     page.layout ??= Layout;
     return page;
   },  
