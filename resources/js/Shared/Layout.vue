@@ -3,6 +3,7 @@
     <header class="flex justify-between"><h1 class="font-bold text-lg">My App</h1>
       <Nav />
     </header>
+    <p>Welcome back {{$page.props.auth.username}}</p>
   </section>
   <section class="p-6">
     <div class="mx-auto">
