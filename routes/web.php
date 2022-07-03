@@ -16,11 +16,15 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     // return inertia('Welcome');
-    return Inertia::render('Home',[
-      'name' => 'Kasun Shavinda',
-      // setup Props
-      'frameworks' => [
-        'Laravel', 'Vue', 'Inertia'
-      ]
-    ]);
+    return Inertia::render('Home');
+});
+
+Route::get('/users', function () {
+    // return inertia('Welcome');
+    return Inertia::render('Users');
+});
+
+Route::get('/settings', function () {
+    // return inertia('Welcome');
+    return Inertia::render('Settings');
 });

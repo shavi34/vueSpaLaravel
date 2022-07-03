@@ -1,7 +1,7 @@
 <template lang="">
   <div>
     <Nav />
-    <h1>Home</h1>
+    <h1>Users</h1>
   </div>
 </template>
 <script>
