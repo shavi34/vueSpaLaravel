@@ -16,5 +16,11 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     // return inertia('Welcome');
-    return Inertia::render('Welcome');
+    return Inertia::render('Home',[
+      'name' => 'Kasun Shavinda',
+      // setup Props
+      'frameworks' => [
+        'Laravel', 'Vue', 'Inertia'
+      ]
+    ]);
 });
