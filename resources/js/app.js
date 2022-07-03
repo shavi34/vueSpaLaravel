@@ -1,10 +1,9 @@
 
 import { createApp, h } from 'vue'
-import { createInertiaApp, Link } from '@inertiajs/inertia-vue3'
+import { createInertiaApp, Link, Head } from '@inertiajs/inertia-vue3'
 import NProgress from 'nprogress'
 import { Inertia } from '@inertiajs/inertia'
 import Layout from './Shared/Layout.vue'
-import { async } from 'rxjs'
 
 NProgress.start();
 NProgress.done();
@@ -39,11 +38,15 @@ createInertiaApp({
   let page = (await import(`./Pages/${name}`)).default;
     page.layout ??= Layout;
     return page;
-  },  
+  },
+  
+  title: title => 'My Inertia App - '+  title,
+    
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .component("Link", Link)
+      .component("Head", Head)
       .mount(el)
   },
 })
