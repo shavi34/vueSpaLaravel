@@ -20,11 +20,13 @@ Route::get('/', function () {
 });
 
 Route::get('/users', function () {
-    // return inertia('Welcome');
     return Inertia::render('Users');
 });
 
 Route::get('/settings', function () {
-    // return inertia('Welcome');
     return Inertia::render('Settings');
+});
+
+Route::post('/logout', function () {
+  dd(request('foo'));
 });

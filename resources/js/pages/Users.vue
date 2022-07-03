@@ -1,7 +1,7 @@
 <template lang="">
   <div>
-    <Nav />
-    <h1>Users</h1>
+    <h1 class="text-2xl mt-10">Users</h1>
+     <Nav />
   </div>
 </template>
 <script>
