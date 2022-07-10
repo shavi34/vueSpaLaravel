@@ -23,11 +23,11 @@ Route::get('/', function () {
 
 Route::get('/users', function () {
 
-    return Inertia::render('Users', [
+    return Inertia::render('Users/Index', [
         'users' => User::query()
             ->when(Request::input('search'), function ($query, $search) {
-            $query->where('name', 'like', '%' . $search . '%');
-        })
+                $query->where('name', 'like', '%' . $search . '%');
+            })
             ->paginate(10)
             ->withQueryString()
             ->through(fn($user) => [
@@ -51,4 +51,32 @@ Route::get('/settings', function () {
 
 Route::post('/logout', function () {
     dd(request('foo'));
+});
+
+Route::get('/users/create', function () {
+    return Inertia::render('Users/Create');
+});
+
+Route::post('/users', function () {
+    $attributes = Request::validate([
+        'name' => 'required',
+        'email' => ['required', 'email'],
+        'password' => 'required',
+        'title' => 'required',
+        'phone' => 'required',
+        'company' => 'required',
+        'role' => 'required',
+    ]);
+//    dd($attributes);
+    User::create([
+        'name' => Request::input('name'),
+        'email' => Request::input('email'),
+        'password' => Request::input('password'),
+        'company' => Request::input('company'),
+        'title' => Request::input('title'),
+        'role' => Request::input('role'),
+        'phone' => Request::input('phone'),
+        'active' => 1,
+    ]);
+    return redirect('/users');
 });
