@@ -8,7 +8,11 @@
                     title, email and role.</p>
             </div>
             <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                <input v-model="search" type="text" placeholder="Search here...." class="border px-2 rounded-lg">
+                <a href="/users/create">
+                    <Button>Add user</Button>
+                </a>
+                <input v-model="search" type="text" placeholder="Search here...."
+                       class="border mx-4 px-2 py-2 rounded-lg">
             </div>
         </div>
         <div class="mt-8 flex flex-col">
@@ -82,11 +86,12 @@
 import Pagination from "../../Shared/Pagination";
 import {ref, watch} from 'vue';
 import {Inertia} from "@inertiajs/inertia";
+import Button from "../../Shared/Button"
 
-let props = defineProps({time: String, users: Object, filters:Object});
+let props = defineProps({time: String, users: Object, filters: Object});
 
 let search = ref(props.filters.search);
 watch(search, value => {
-    Inertia.get('/users', {search: value}, {preserveState: true, replace:true})
+    Inertia.get('/users', {search: value}, {preserveState: true, replace: true})
 })
 </script>
